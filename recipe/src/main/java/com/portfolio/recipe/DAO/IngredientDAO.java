@@ -11,4 +11,5 @@ public interface IngredientDAO {
     public void updateIngredient(Ingredient ingredient);
     public void deleteIngredient(int ingredientId);
     public List<Ingredient> getIngredientsByRecipeId(int recipeId);
+    public List<Ingredient> getIngredientsByName(String ingredientName);
 }

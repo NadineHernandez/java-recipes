@@ -83,4 +83,16 @@ class IngredientDAOTest {
         assertEquals(ingredient2, dao.getIngredientsByRecipeId(2).get(0));
         assertEquals(1, dao.getIngredientsByRecipeId(2).size());
     }
+
+    @Test
+    void getIngredientsByName() {
+        Ingredient ingredient = new Ingredient("Flour", "1 cup", 1);
+        ingredient = dao.addIngredient(ingredient);
+
+        Ingredient ingredient2 = new Ingredient("Large Eggs", "2", 2);
+        ingredient2 = dao.addIngredient(ingredient2);
+
+        assertEquals(ingredient2, dao.getIngredientsByName(ingredient2.getIngredientName()).get(0));
+        assertEquals(1, dao.getIngredientsByName(ingredient2.getIngredientName()).size());
+    }
 }

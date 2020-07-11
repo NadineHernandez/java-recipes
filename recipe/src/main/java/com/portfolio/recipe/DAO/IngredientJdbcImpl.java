@@ -19,6 +19,7 @@ public class IngredientJdbcImpl implements IngredientDAO{
             " WHERE ingredientId = ?";
     private static final String DELETE_INGREDIENT_SQL = "DELETE FROM ingredient WHERE ingredientId = ?";
     private static final String SELECT_INGREDIENTS_BY_RECIPE_ID = "SELECT * FROM ingredient WHERE recipeId = ?";
+    private static final String SELECT_INGREDIENTS_BY_NAME_SQL = "SELECT * FROM ingredient WHERE ingredientName LIKE ?";
 
     private JdbcTemplate jdbcTemplate;
 
@@ -62,6 +63,12 @@ public class IngredientJdbcImpl implements IngredientDAO{
     @Override
     public List<Ingredient> getIngredientsByRecipeId(int recipeId) {
         return jdbcTemplate.query(SELECT_INGREDIENTS_BY_RECIPE_ID, this::mapRowToIngredient, recipeId);
+    }
+
+    @Override
+    public List<Ingredient> getIngredientsByName(String ingredientName) {
+        ingredientName = "%" + ingredientName + "%";
+        return jdbcTemplate.query(SELECT_INGREDIENTS_BY_NAME_SQL, this::mapRowToIngredient, ingredientName);
     }
 
     private Ingredient mapRowToIngredient(ResultSet rs, int rowNum) throws SQLException {

@@ -76,7 +76,7 @@ class ServiceLayerTest {
         recipeIngredients.add(ingredientWithId);
 
         List<Ingredient> recipe2Ingredients = new ArrayList<>();
-        recipeIngredients.add(ingredient2WithId);
+        recipe2Ingredients.add(ingredient2WithId);
 
         doReturn(ingredientWithId).when(ingredientDAO).addIngredient(ingredient);
         doReturn(ingredientWithId).when(ingredientDAO).getIngredientById(1);
@@ -86,6 +86,8 @@ class ServiceLayerTest {
         doReturn(allIngredients).when(ingredientDAO).getAllIngredients();
         doReturn(recipeIngredients).when(ingredientDAO).getIngredientsByRecipeId(1);
         doReturn(recipe2Ingredients).when(ingredientDAO).getIngredientsByRecipeId(2);
+        doReturn(recipeIngredients).when(ingredientDAO).getIngredientsByName(ingredientWithId.getIngredientName());
+        doReturn(recipe2Ingredients).when(ingredientDAO).getIngredientsByName(ingredient2WithId.getIngredientName());
     }
 
     @BeforeEach
@@ -108,6 +110,25 @@ class ServiceLayerTest {
                 "bake for 45min at 350", ingredients, 60, 15, 75);
 
         assertEquals(recipeViewModel, serviceLayer.buildRecipeViewModel(recipeWithId, ingredients));
+    }
+
+    @Test
+    void saveRecipe() {
+        Ingredient ingredient = new Ingredient("Flour", "1 cup");
+        List<Ingredient> ingredients = new ArrayList<>();
+        ingredients.add(ingredient);
+
+        Ingredient ingredientWithId = new Ingredient(1,"Flour", "1 cup", 1);
+        List<Ingredient> ingredientsWithId = new ArrayList<>();
+        ingredients.add(ingredient);
+
+        RecipeViewModel recipeViewModel = new RecipeViewModel("Cake", "Image", "Dessert",
+                "bake for 45min at 350", ingredients, 60, 15, 75);
+
+        RecipeViewModel recipeViewModelWithId = new RecipeViewModel(1,"Cake", "Image", "Dessert",
+                "bake for 45min at 350", ingredientsWithId, 60, 15, 75);
+
+        assertEquals(recipeViewModel, serviceLayer.saveRecipe(recipeViewModel));
     }
 
     @Test

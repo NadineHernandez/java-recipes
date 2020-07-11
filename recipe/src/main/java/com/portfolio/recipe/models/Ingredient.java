@@ -11,6 +11,11 @@ public class Ingredient {
     public Ingredient() {
     }
 
+    public Ingredient(String ingredientName, String amount) {
+        this.ingredientName = ingredientName;
+        this.amount = amount;
+    }
+
     public Ingredient(String ingredientName, String amount, int recipeId) {
         this.ingredientName = ingredientName;
         this.amount = amount;
