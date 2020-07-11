@@ -22,12 +22,12 @@ public class ServiceLayer {
         this.recipeDAO = recipeDAO;
     }
 
-    private RecipeViewModel buildRecipeViewModel(Recipe recipe, Ingredient ingredient) {
+    public RecipeViewModel buildRecipeViewModel(Recipe recipe, List<Ingredient> ingredients) {
         return null;
     }
 
     @Transactional
-    private RecipeViewModel saveRecipe(RecipeViewModel recipeViewModel){
+    public RecipeViewModel saveRecipe(RecipeViewModel recipeViewModel){
         return null;
     }
 

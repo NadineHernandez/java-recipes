@@ -30,10 +30,6 @@ class RecipeDAOTest {
 
     @Test
     void addRecipe() {
-        Map<String, String> ingredients = new HashMap<String, String>();
-        ingredients.put("flour", "3 cups");
-        ingredients.put("large eggs", "2");
-
         Recipe recipe = new Recipe("Cake", "Image", "Dessert",
                 "bake for 45min at 350", 60, 15, 75);
 
@@ -44,17 +40,9 @@ class RecipeDAOTest {
 
     @Test
     void getAllRecipes() {
-        Map<String, String> ingredients = new HashMap<String, String>();
-        ingredients.put("flour", "3 cups");
-        ingredients.put("large eggs", "2");
-
         Recipe recipe = new Recipe("Cake", "Image", "Dessert",
                 "bake for 45min at 350", 60, 15, 75);
         dao.addRecipe(recipe);
-
-        Map<String, String> ingredients2 = new HashMap<String, String>();
-        ingredients2.put("flour", "3 cups");
-        ingredients2.put("large eggs", "2");
 
         Recipe recipe2 = new Recipe("Pie", "Image", "Dessert",
                 "bake for 30min at 350", 55, 20, 75);
@@ -65,10 +53,6 @@ class RecipeDAOTest {
 
     @Test
     void getRecipeById() {
-        Map<String, String> ingredients = new HashMap<String, String>();
-        ingredients.put("flour", "3 cups");
-        ingredients.put("large eggs", "2");
-
         Recipe recipe = new Recipe("Cake", "Image", "Dessert",
                 "bake for 45min at 350", 60, 15, 75);
 
@@ -79,10 +63,6 @@ class RecipeDAOTest {
 
     @Test
     void updateRecipe() {
-        Map<String, String> ingredients = new HashMap<String, String>();
-        ingredients.put("flour", "3 cups");
-        ingredients.put("large eggs", "2");
-
         Recipe recipe = new Recipe("Cake", "Image", "Dessert",
                 "bake for 45min at 350", 60, 15, 75);
 
@@ -95,10 +75,6 @@ class RecipeDAOTest {
 
     @Test
     void deleteRecipe() {
-        Map<String, String> ingredients = new HashMap<String, String>();
-        ingredients.put("flour", "3 cups");
-        ingredients.put("large eggs", "2");
-
         Recipe recipe = new Recipe("Cake", "Image", "Dessert",
                 "bake for 45min at 350", 60, 15, 75);
 
@@ -110,17 +86,9 @@ class RecipeDAOTest {
 
     @Test
     void getRecipesByName() {
-        Map<String, String> ingredients = new HashMap<String, String>();
-        ingredients.put("flour", "3 cups");
-        ingredients.put("large eggs", "2");
-
         Recipe recipe = new Recipe("Chocolate Cake", "Image", "Dessert",
                 "bake for 45min at 350", 60, 15, 75);
         dao.addRecipe(recipe);
-
-        Map<String, String> ingredients2 = new HashMap<String, String>();
-        ingredients2.put("flour", "3 cups");
-        ingredients2.put("large eggs", "2");
 
         Recipe recipe2 = new Recipe("Pie", "Image", "Dessert",
                 "bake for 30min at 350", 55, 20, 75);
@@ -132,17 +100,9 @@ class RecipeDAOTest {
 
     @Test
     void getRecipeByCategory() {
-        Map<String, String> ingredients = new HashMap<String, String>();
-        ingredients.put("flour", "3 cups");
-        ingredients.put("large eggs", "2");
-
         Recipe recipe = new Recipe("Cake", "Image", "Dessert",
                 "bake for 45min at 350", 60, 15, 75);
         dao.addRecipe(recipe);
-
-        Map<String, String> ingredients2 = new HashMap<String, String>();
-        ingredients2.put("large eggs", "2");
-        ingredients2.put("cheese", "quarter cup");
 
         Recipe recipe2 = new Recipe("Omlette", "Image", "Entree",
                 "cook in skillet", 5, 2, 7);
@@ -154,17 +114,9 @@ class RecipeDAOTest {
 
     @Test
     void getRecipeByTotalTime() {
-        Map<String, String> ingredients = new HashMap<String, String>();
-        ingredients.put("flour", "3 cups");
-        ingredients.put("large eggs", "2");
-
         Recipe recipe = new Recipe("Cake", "Image", "Dessert",
                 "bake for 45min at 350", 60, 15, 75);
         dao.addRecipe(recipe);
-
-        Map<String, String> ingredients2 = new HashMap<String, String>();
-        ingredients2.put("large eggs", "2");
-        ingredients2.put("cheese", "quarter cup");
 
         Recipe recipe2 = new Recipe("Omlette", "Image", "Entree",
                 "cook in skillet", 5, 2, 7);

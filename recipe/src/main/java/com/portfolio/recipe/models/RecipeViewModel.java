@@ -6,6 +6,7 @@ import java.util.Objects;
 
 public class RecipeViewModel {
 
+    private int recipeId;
     private String recipeName;
     private String recipeImage;
     private String category;
@@ -16,6 +17,19 @@ public class RecipeViewModel {
     private int totalTimeMins;
 
     public RecipeViewModel() {
+    }
+
+    public RecipeViewModel(int recipeId, String recipeName, String recipeImage, String category, String instructions,
+                           List<Ingredient> ingredients, int cookTimeMins, int prepTimeMins, int totalTimeMins) {
+        this.recipeId = recipeId;
+        this.recipeName = recipeName;
+        this.recipeImage = recipeImage;
+        this.category = category;
+        this.instructions = instructions;
+        this.ingredients = ingredients;
+        this.cookTimeMins = cookTimeMins;
+        this.prepTimeMins = prepTimeMins;
+        this.totalTimeMins = totalTimeMins;
     }
 
     public RecipeViewModel(String recipeName, String recipeImage, String category, String instructions,
@@ -30,15 +44,12 @@ public class RecipeViewModel {
         this.totalTimeMins = totalTimeMins;
     }
 
-    public RecipeViewModel(String recipeImage, String category, String instructions, List<Ingredient> ingredients,
-                           int cookTimeMins, int prepTimeMins, int totalTimeMins) {
-        this.recipeImage = recipeImage;
-        this.category = category;
-        this.instructions = instructions;
-        this.ingredients = ingredients;
-        this.cookTimeMins = cookTimeMins;
-        this.prepTimeMins = prepTimeMins;
-        this.totalTimeMins = totalTimeMins;
+    public int getRecipeId() {
+        return recipeId;
+    }
+
+    public void setRecipeId(int recipeId) {
+        this.recipeId = recipeId;
     }
 
     public String getRecipeName() {
@@ -110,7 +121,8 @@ public class RecipeViewModel {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         RecipeViewModel that = (RecipeViewModel) o;
-        return cookTimeMins == that.cookTimeMins &&
+        return recipeId == that.recipeId &&
+                cookTimeMins == that.cookTimeMins &&
                 prepTimeMins == that.prepTimeMins &&
                 totalTimeMins == that.totalTimeMins &&
                 recipeName.equals(that.recipeName) &&
@@ -122,13 +134,14 @@ public class RecipeViewModel {
 
     @Override
     public int hashCode() {
-        return Objects.hash(recipeName, recipeImage, category, instructions, ingredients, cookTimeMins, prepTimeMins, totalTimeMins);
+        return Objects.hash(recipeId, recipeName, recipeImage, category, instructions, ingredients, cookTimeMins, prepTimeMins, totalTimeMins);
     }
 
     @Override
     public String toString() {
         return "RecipeViewModel{" +
-                "recipeName='" + recipeName + '\'' +
+                "recipeId=" + recipeId +
+                ", recipeName='" + recipeName + '\'' +
                 ", recipeImage='" + recipeImage + '\'' +
                 ", category='" + category + '\'' +
                 ", instructions='" + instructions + '\'' +
